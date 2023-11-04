@@ -1,0 +1,34 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  background-color: #171111;
+  border-bottom: #37302a;
+  .logo {
+    a {
+      display: block;
+      margin-left: 3px;
+      img {
+        // width: 100px;
+        height: 65px;
+      }
+    }
+  }
+  .navigation {
+    ul {
+      display: block;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        display: inline;
+        margin-right: 15px;
+        a {
+          color: whitesmoke;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
