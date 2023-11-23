@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Movie, MoviesDataTypeObject } from '../models/movie'
+import { environment } from '../../environments/environment'
 
 /**
  * @Injectable({
@@ -13,11 +14,25 @@ import { Movie, MoviesDataTypeObject } from '../models/movie'
   providedIn: 'root',
 })
 export class MoviesService {
+  private apiURL = environment.apiURL
+  private apiKey = environment.apiKey
+
   constructor(private http: HttpClient) {}
 
   getPopularMovies() {
     return this.http.get<MoviesDataTypeObject>(
-      'https://api.themoviedb.org/3/movie/popular'
+      `${this.apiURL}/movie/popular?api_key=${this.apiKey}`
     )
   }
 }
+
+/**
+ * structure of environment.ts
+ *
+ * export const environment = {
+  production: false,
+  apiURL: 'https://some.api.call',
+  apiKey: 'some-api-key',
+}
+
+ */
