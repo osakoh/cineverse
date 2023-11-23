@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Movie, MoviesDataTypeObject } from '../models/movie'
+import { MoviesDataTypeObject } from '../models/movie'
 import { environment } from '../../environments/environment'
 
 /**
