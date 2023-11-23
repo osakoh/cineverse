@@ -1,9 +1,21 @@
+<!--
+movies$ | async: This is an asynchronous pipe combined with an observable (movies$). It subscribes to the observable and returns its latest value.
+                   The async pipe automatically unsubscribes when the component is destroyed, preventing potential memory leaks
+
+as movies: This is a way to alias the result of movies$ | async to a variable named movies.
+            Example: If movies$ is an observable stream of movie data from an API, this line would display the content inside the div only when the movie data is available
+
+let movieIndex = index: assigns the current index of the item in the array to movieIndex
+
+ngIf="movieIndex === slideIndex": compares movieIndex with slideIndex. Display only the div that matches to the current slideIndex(only the slide (movie) that matches the current index (slideIndex).)
+
+@slideFade: used only on HTML elements not Angular containers such as 'ng-container'. It applies an animation trigger to the element(div)
+            When a movie slide comes into view or goes out of view, it fades in or out
+
+ -->
 <div class="slider" *ngIf="movies$ | async as movies">
-  <div
-    class="slide"
-    *ngFor="let movie of movies.results; let movieIndex = index"
-  >
-    <ng-container *ngIf="movieIndex === slideIndex">
+  <ng-container *ngFor="let movie of movies.results; let movieIndex = index">
+    <div class="slide" *ngIf="movieIndex === slideIndex" @slideFade>
       <div class="slide-bg">
         <img
           src="http://image.tmdb.org/t/p/w1280{{ movie.backdrop_path }}"
@@ -29,6 +41,6 @@
         </div>
         <div class="description">{{ movie.overview }}</div>
       </div>
-    </ng-container>
-  </div>
+    </div>
+  </ng-container>
 </div>

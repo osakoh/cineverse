@@ -17,7 +17,7 @@ export class MoviesService {
 
   getPopularMovies() {
     return this.http.get<MoviesDataTypeObject>(
-      'https://api.themoviedb.org/3/movie/popular?api_key='
+      'https://api.themoviedb.org/3/movie/popular'
     )
   }
 }
