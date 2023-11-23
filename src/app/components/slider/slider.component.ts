@@ -1,6 +1,10 @@
 import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, OnInit } from '@angular/core'
-import { MoviesService } from 'src/app/services/movies.service'
+import { MoviesService } from '../../services/movies.service'
+import {
+  SECURE_BASE_URL,
+  BACKDROP_SIZES,
+} from '../../constants/image-configuration'
 
 @Component({
   selector: 'app-slider',
@@ -30,11 +34,22 @@ export class SliderComponent implements OnInit {
   // SliderComponent subscribes to this Observable via movies$
   movies$ = this.moviesService.getPopularMovies()
 
+  imageBaseUrl = SECURE_BASE_URL
+  backdropSize = BACKDROP_SIZES[2]
+
+  // set to 0 when an instance of this class in rendered
   slideIndex = 0
+  slideValue = 10
 
   ngOnInit(): void {
+    this.changeSlide()
+  }
+
+  changeSlide(): void {
     setInterval(() => {
       this.slideIndex += 1
+      // reset slideIndex to 0; if slideIndex > slideValue otherwise leave the value unchanged
+      this.slideIndex = this.slideIndex > this.slideValue ? 0 : this.slideIndex
     }, 5000)
   }
 }

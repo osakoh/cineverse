@@ -15,11 +15,12 @@ ngIf="movieIndex === slideIndex": compares movieIndex with slideIndex. Display o
  -->
 <div class="slider" *ngIf="movies$ | async as movies">
   <ng-container *ngFor="let movie of movies.results; let movieIndex = index">
+    <!-- no movies will be shown if the 'slideIndex' is larger than the 'movieIndex' -->
     <div class="slide" *ngIf="movieIndex === slideIndex" @slideFade>
       <div class="slide-bg">
         <img
-          src="http://image.tmdb.org/t/p/w1280{{ movie.backdrop_path }}"
-          alt="{{ movie.original_title }}"
+          [src]="imageBaseUrl + backdropSize + movie.backdrop_path"
+          [alt]="movie.original_title"
         />
       </div>
       <div class="slide-pane">
