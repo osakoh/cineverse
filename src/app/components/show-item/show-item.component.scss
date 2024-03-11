@@ -4,6 +4,16 @@
   position: relative;
   border-radius: 5px;
   border: 1px solid #999;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: rgb(238, 166, 31);
+    background-color: #171111;
+  }
+
   &-image {
     height: 375px;
     img {
@@ -25,7 +35,7 @@
 
     .pi {
       font-size: 1.2rem;
-      color: orange;
+      color: rgb(238, 166, 31);
       margin-right: 5px;
     }
   }

@@ -15,3 +15,9 @@ export const BACKDROP_SIZES = Object.freeze([
   'w1280',
   'original',
 ] as const)
+
+export const IMAGES_SIZES = {
+  small: `${SECURE_BASE_URL}/w185`,
+  medium: `${SECURE_BASE_URL}/w342`,
+  large: `${SECURE_BASE_URL}/original`,
+}

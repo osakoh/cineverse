@@ -13,8 +13,8 @@ ngIf="movieIndex === slideIndex": compares movieIndex with slideIndex. Display o
             When a movie slide comes into view or goes out of view, it fades in or out
 
  -->
-<div class="slider" *ngIf="movies$ | async as movies">
-  <ng-container *ngFor="let movie of movies; let movieIndex = index">
+<div class="slider" *ngIf="slides">
+  <ng-container *ngFor="let movie of slides; let movieIndex = index">
     <!-- no movies will be shown if the 'slideIndex' is larger than the 'movieIndex' -->
     <div class="slide" *ngIf="movieIndex === slideIndex" @slideFade>
       <div class="slide-bg">

@@ -1,3 +1,8 @@
+export type Genre = {
+  id: string
+  name: string
+}
+
 export type Movie = {
   id: number
   backdrop_path: string
@@ -11,6 +16,10 @@ export type Movie = {
   title: string
   vote_average: number
   vote_count: number
+  revenue?: number
+  runtime?: string
+  status?: string
+  genres?: Genre[]
 }
 
 export type MoviesDataTypeObject = {

@@ -1,10 +1,11 @@
 import { animate, state, style, transition, trigger } from '@angular/animations'
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { MoviesService } from '../../services/movies.service'
 import {
   SECURE_BASE_URL,
   BACKDROP_SIZES,
 } from '../../constants/image-configuration'
+import { Movie } from 'src/app/models/movie'
 
 @Component({
   selector: 'app-slider',
@@ -28,11 +29,14 @@ import {
   ],
 })
 export class SliderComponent implements OnInit {
-  constructor(private moviesService: MoviesService) {}
+  @Input() slides: Movie[] = []
+  @Input() isHeader = false
+
+  // constructor(private moviesService: MoviesService) {}
 
   // the dollar sign($)- a naming convention indicating that the variable holds an observable
   // SliderComponent subscribes to this Observable via movies$
-  movies$ = this.moviesService.getMoviesByType('popular')
+  // movies$ = this.moviesService.getMoviesByType('popular')
 
   imageBaseUrl = SECURE_BASE_URL
   backdropSize = BACKDROP_SIZES[2]
@@ -42,7 +46,9 @@ export class SliderComponent implements OnInit {
   slideValue = 10
 
   ngOnInit(): void {
-    this.changeSlide()
+    if (!this.isHeader) {
+      this.changeSlide()
+    }
   }
 
   changeSlide(): void {
