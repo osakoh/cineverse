@@ -1,18 +1,17 @@
 .slider {
   position: relative;
-  height: 35rem;
+  height: 40rem;
   .slide {
     width: 100%;
     position: absolute;
-    height: 35rem;
+    height: 40rem;
     &-bg {
-      height: 35rem; // 35 * 14 = ...px (font-size in styles.scss)
+      height: 40rem; // 35 * 14 = ...px (font-size in styles.scss)
       position: relative;
       img {
         height: 100%;
         width: 100%;
         object-fit: cover;
-        border-radius: 10px;
       }
       &::after {
         position: absolute;

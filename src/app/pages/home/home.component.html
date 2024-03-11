@@ -11,4 +11,9 @@
   ></app-banner>
 </ng-container>
 
-<div>TV Shows</div>
+<ng-container *ngIf="popularTvshows$ | async as popularTvshows">
+  <app-banner
+    [title]="'Popular Tv Shows'"
+    [shows]="popularTvshows"
+  ></app-banner>
+</ng-container>
