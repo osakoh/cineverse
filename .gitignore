@@ -43,3 +43,9 @@ Thumbs.db
 
 # user
 .vscode/settings.json
+
+# Ng
+environments
+
+# custom
+skip
