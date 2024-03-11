@@ -32,7 +32,7 @@ export class SliderComponent implements OnInit {
 
   // the dollar sign($)- a naming convention indicating that the variable holds an observable
   // SliderComponent subscribes to this Observable via movies$
-  movies$ = this.moviesService.getPopularMovies()
+  movies$ = this.moviesService.getMoviesByType('popular')
 
   imageBaseUrl = SECURE_BASE_URL
   backdropSize = BACKDROP_SIZES[2]

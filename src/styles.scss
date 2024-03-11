@@ -8,8 +8,15 @@ body {
   font-family: 'Roboto Slab', serif;
   font-weight: 400;
   font-size: 14px;
+  color: white;
+  background-color: #141414;
 }
 
 h1 {
   font-weight: 400;
+}
+
+.container {
+  margin: 0.5rem;
+  padding: 0.5rem;
 }
